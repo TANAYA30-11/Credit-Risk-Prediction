@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CreditShield AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">🛡️</div>
+
+            <span>
+                CreditShield <b>AI</b>
+            </span>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            AI Model Online
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✦ AI-POWERED CREDIT ANALYSIS
+            </div>
+
+            <h1>
+                Smarter Credit Decisions
+                <span>Powered by AI.</span>
+            </h1>
+
+            <p>
+                Analyze borrower information and predict credit default
+                risk using an intelligent XGBoost machine learning model.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+        <div class="prediction-card">
+
+            <!-- FORM -->
+
+            <div class="form-section">
+
+                <div class="section-title">
+
+                    <div class="title-icon">
+                        👤
+                    </div>
+
+                    <div>
+                        <h2>Applicant Information</h2>
+                        <p>Enter borrower details</p>
+                    </div>
+
+                </div>
+
+                <form id="creditForm">
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+                            <label>Age</label>
+                            <input
+                                id="age"
+                                type="number"
+                                placeholder="25"
+                                required
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label>Annual Income</label>
+                            <input
+                                id="income"
+                                type="number"
+                                placeholder="50000"
+                                required
+                            >
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Home Ownership</label>
+
+                            <select id="home" required>
+                                <option value="">Select</option>
+                                <option value="RENT">RENT</option>
+                                <option value="OWN">OWN</option>
+                                <option value="MORTGAGE">MORTGAGE</option>
+                                <option value="OTHER">OTHER</option>
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Employment Length</label>
+
+                            <input
+                                id="emp_length"
+                                type="number"
+                                step="0.1"
+                                placeholder="3"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Loan Intent</label>
+
+                            <select id="intent" required>
+
+                                <option value="">Select</option>
+                                <option value="EDUCATION">Education</option>
+                                <option value="MEDICAL">Medical</option>
+                                <option value="VENTURE">Venture</option>
+                                <option value="PERSONAL">Personal</option>
+                                <option value="DEBTCONSOLIDATION">
+                                    Debt Consolidation
+                                </option>
+                                <option value="HOMEIMPROVEMENT">
+                                    Home Improvement
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Loan Grade</label>
+
+                            <select id="grade" required>
+
+                                <option value="">Select</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                                <option value="F">F</option>
+                                <option value="G">G</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Loan Amount</label>
+
+                            <input
+                                id="amount"
+                                type="number"
+                                placeholder="10000"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Interest Rate (%)</label>
+
+                            <input
+                                id="rate"
+                                type="number"
+                                step="0.01"
+                                placeholder="10.5"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Loan / Income Ratio</label>
+
+                            <input
+                                id="percent"
+                                type="number"
+                                step="0.01"
+                                placeholder="0.20"
+                                min="0"
+                                max="1"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Previous Default</label>
+
+                            <select id="default" required>
+
+                                <option value="">Select</option>
+                                <option value="N">No</option>
+                                <option value="Y">Yes</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>Credit History Length</label>
+
+                            <input
+                                id="history"
+                                type="number"
+                                placeholder="4"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="predict-btn"
+                        id="predictBtn"
+                    >
+
+                        <span id="buttonText">
+                            Analyze Credit Risk
+                        </span>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- RESULT -->
+
+            <div class="result-section" id="resultSection">
+
+                <!-- PLACEHOLDER -->
+
+                <div
+                    class="result-placeholder"
+                    id="resultPlaceholder"
+                >
+
+                    <div class="shield-animation">
+                        🛡️
+                    </div>
+
+                    <h2>
+                        Ready to Analyze
+                    </h2>
+
+                    <p>
+                        Enter applicant information and let our AI model
+                        evaluate the credit risk.
+                    </p>
+
+                </div>
+
+                <!-- RESULT CONTENT -->
+
+                <div
+                    class="result-content"
+                    id="resultContent"
+                >
+
+                    <div class="result-header">
+
+                        <span>
+                            AI ANALYSIS
+                        </span>
+
+                        <span class="live">
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+                    <!-- SCORE -->
+
+                    <div class="risk-circle">
+
+                        <div>
+
+                            <strong id="probability">
+                                0%
+                            </strong>
+
+                            <small>
+                                Default Risk
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="risk-badge"
+                        id="riskLevel"
+                    >
+                        Low Risk
+                    </div>
+
+                    <!-- BASIC RESULT -->
+
+                    <div class="result-details">
+
+                        <div class="result-row">
+
+                            <span>Prediction</span>
+
+                            <strong id="prediction">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="result-row">
+
+                            <span>Risk Level</span>
+
+                            <strong id="riskText">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="result-row">
+
+                            <span>Recommendation</span>
+
+                            <strong id="recommendation">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <!-- AI EXPLANATION -->
+
+                    <div class="explanation">
+
+                        <h3>
+                            🧠 Why this prediction?
+                        </h3>
+
+                        <p id="explanationText">
+                            AI analysis will appear here after prediction.
+                        </p>
+
+                    </div>
+
+                    <!-- RISK FACTORS -->
+
+                    <div class="factor-section">
+
+                        <h3>
+                            🔴 Risk Factors
+                        </h3>
+
+                        <div id="riskFactors"></div>
+
+                    </div>
+
+                    <!-- POSITIVE FACTORS -->
+
+                    <div class="factor-section">
+
+                        <h3>
+                            🟢 Positive Factors
+                        </h3>
+
+                        <div id="positiveFactors"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>
+            CreditShield AI • XGBoost Credit Risk Classifier
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
