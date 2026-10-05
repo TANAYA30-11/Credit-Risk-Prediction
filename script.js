@@ -127,7 +127,7 @@ form.addEventListener("submit", async function (event) {
         -------------------------------- */
 
         const response = await fetch(
-            "https://credit-risk-prediction-y8j8.onrender.com",
+            "https://credit-risk-prediction-y8j8.onrender.com/predict",
             {
                 method: "POST",
 
